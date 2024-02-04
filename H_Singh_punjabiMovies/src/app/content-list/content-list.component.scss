@@ -1,0 +1,32 @@
+.custom-content-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+    width: 220px;
+  }
+  
+  .custom-content-card .card-header {
+    text-align: center;
+  }
+  
+  .custom-content-card .content-card-image {
+    border-radius: 4px;
+  }
+  
+  .custom-content-card h2 {
+    margin: 10px 0;
+  }
+  
+  .custom-content-card .card-body {
+    font-size: 14px;
+  }
+  
+  .custom-content-card p {
+    margin: 5px 0;
+  }
+  
+  .custom-content-card.first-item {
+    background-color: #e0f7fa; /* Light Blue background for the first item */
+  }
+  
