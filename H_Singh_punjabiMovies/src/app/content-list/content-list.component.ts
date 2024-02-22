@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
+import { FormsModule } from '@angular/forms';
+import { TypePipe } from '../type.pipe';
+import { ContentCardComponent } from '../content-card/content-card.component';
 
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ContentCardComponent, TypePipe, FormsModule],
   templateUrl: './content-list.component.html',
   styleUrl: './content-list.component.scss'
 })
@@ -14,6 +17,18 @@ export class ContentListComponent implements OnInit {
     console.log(`ID: ${contentItem.id} and Title: ${contentItem.title}`);
     }
   @Input () contentItems: Content[] = [];
+
+  searchTitle: string = '';
+  contentExists: boolean = false;
+  message: string = '';  
+  selectedTitle: string | null = null;
+
+  checkContentExists() {
+    const foundItem = this.contentItems.find(item => item.title.toLowerCase() === this.searchTitle.toLowerCase());
+    this.contentExists = !!foundItem;
+    this.message = foundItem ? 'Content item exists.' : 'Content item does not exist.';
+    this.selectedTitle = foundItem ? foundItem.title : null;
+  }
 
   ngOnInit(): void {
     this.contentItems =[
@@ -32,7 +47,7 @@ export class ContentListComponent implements OnInit {
         description:"Set during the India-Pakistan partition, the story of Sardar Mohammad revolves around an infant who is saved by an Indian Sikh police officer.",
         creator:"Harry Bhatti",
         imgURL:"https://timesofindia.indiatimes.com/photo/61486918.cms",
-        type:"Biography",
+        type:"Drama",
         tags: ["Biography", "Drama"]
       },
       {
