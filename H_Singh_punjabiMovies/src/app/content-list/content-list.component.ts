@@ -4,11 +4,12 @@ import { Content } from '../helper-files/content-interface';
 import { FormsModule } from '@angular/forms';
 import { TypePipe } from '../type.pipe';
 import { ContentCardComponent } from '../content-card/content-card.component';
+import { HoverAffectDirective } from '../hover-affect.directive';
 
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [CommonModule, ContentCardComponent, TypePipe, FormsModule],
+  imports: [CommonModule, ContentCardComponent, TypePipe, FormsModule, HoverAffectDirective],
   templateUrl: './content-list.component.html',
   styleUrl: './content-list.component.scss'
 })
@@ -37,7 +38,7 @@ export class ContentListComponent implements OnInit {
         title: "Angrej",
         description:"A thoughtful young man struggles to find a woman to marry.",
         creator:"	Simerjit Singh",
-        imgURL:"https://upload.wikimedia.org/wikipedia/en/2/2a/Angrej_poster.jpg",
+        imgURL:"",
         type:"Romantic",
         tags: ["romantic", "comady"]
       },
