@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { TypePipe } from '../type.pipe';
 import { ContentCardComponent } from '../content-card/content-card.component';
 import { HoverAffectDirective } from '../hover-affect.directive';
+import { CreateContentComponent } from '../create-content/create-content.component';
 
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [CommonModule, ContentCardComponent, TypePipe, FormsModule, HoverAffectDirective],
+  imports: [CommonModule, ContentCardComponent, TypePipe, FormsModule, HoverAffectDirective, CreateContentComponent],
   templateUrl: './content-list.component.html',
   styleUrl: './content-list.component.scss'
 })
@@ -62,7 +63,7 @@ export class ContentListComponent implements OnInit {
       },
       {
         id: 3,
-        title: "Angrej",
+        title: "Angrej1",
         description:"A thoughtful young man struggles to find a woman to marry.",
         creator:"	Simerjit Singh",
         imgURL:"https://upload.wikimedia.org/wikipedia/en/2/2a/Angrej_poster.jpg",
@@ -71,7 +72,7 @@ export class ContentListComponent implements OnInit {
       },
       {
         id: 4,
-        title: "Sardar Mohammad",
+        title: "Sardar Mohammad1",
         description:"Set during the India-Pakistan partition, the story of Sardar Mohammad revolves around an infant who is saved by an Indian Sikh police officer.",
         creator:"Harry Bhatti",
         imgURL:"https://timesofindia.indiatimes.com/photo/61486918.cms",
@@ -80,7 +81,7 @@ export class ContentListComponent implements OnInit {
       },
       {
         id: 5,
-        title: "Shareek",
+        title: "Shareek1",
         description:"The word 'Shareek' may refer to 'sharing' in dictionary but in Punjab it had always been opposite to it. As time flies, one doesn't even notice that how and when the brothers become the enemies of each other.",
         creator:"Navaniat Singh",
         imgURL:"https://upload.wikimedia.org/wikipedia/en/2/2f/Shareek_movie_poster.jpg",
@@ -89,7 +90,7 @@ export class ContentListComponent implements OnInit {
       },
       {
         id: 6,
-        title: "Angrej",
+        title: "Angrej2",
         description:"A thoughtful young man struggles to find a woman to marry.",
         creator:"	Simerjit Singh",
         imgURL:"https://upload.wikimedia.org/wikipedia/en/2/2a/Angrej_poster.jpg",
@@ -98,6 +99,9 @@ export class ContentListComponent implements OnInit {
       }
       
     ];
+  }
+  onContentCreated(newContent: any) {
+    this.contentItems.push({ ...newContent }); 
   }
  
 }
